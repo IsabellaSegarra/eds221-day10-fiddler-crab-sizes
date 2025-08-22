@@ -6,7 +6,7 @@ execute:
   echo: false 
   warning: false 
 ---
-
+## Plum Island Ecossytem LTER Fiddler Crabs 
 ```{r}
 #Load libraries 
 
@@ -15,6 +15,7 @@ library(ggplot2)
 library(tidyverse)
 ```
 
+This is a plot of fiddler crab sizes by latitude. 
 ```{r}
 #| fig-cap: "fiddler crab sizes"
 pie_crab <- pie_crab
@@ -27,7 +28,7 @@ crab_plot <- ggplot(data = pie_crab,
 
 crab_plot
 ```
-
+THis is a summary table of fidler crab sizes based on site. 
 ```{r}
 #Summary table 
 
