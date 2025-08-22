@@ -2,6 +2,9 @@
 title: "fiddler-crab"
 format: html
 editor: visual
+exectute: 
+  echo: false 
+  warning: false 
 ---
 
 ```{r}
@@ -13,12 +16,25 @@ library(tidyverse)
 ```
 
 ```{r}
+#| fig-cap: "fiddler crab sizes"
 pie_crab <- pie_crab
 
 ggplot(data = pie_crab, 
        aes(x = size, 
            y = latitude)) + 
   geom_point() + 
-  coord_flip()
+  coord_flip() 
+```
+```{r}
+#Summary table 
+
+library(dplyr)
+
+pie_crab |> 
+  group_by(site) |>
+  summarize(mean_size = round(mean(size, na.rm = TRUE),2), 
+            sd_size = sd(size, na.rm = TRUE),
+            sample_size = n())
+
 ```
 
