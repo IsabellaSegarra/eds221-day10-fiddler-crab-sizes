@@ -2,7 +2,7 @@
 title: "fiddler-crab"
 format: html
 editor: visual
-exectute: 
+execute: 
   echo: false 
   warning: false 
 ---
@@ -19,22 +19,28 @@ library(tidyverse)
 #| fig-cap: "fiddler crab sizes"
 pie_crab <- pie_crab
 
-ggplot(data = pie_crab, 
+crab_plot <- ggplot(data = pie_crab, 
        aes(x = size, 
            y = latitude)) + 
   geom_point() + 
   coord_flip() 
+
+crab_plot
 ```
+
 ```{r}
 #Summary table 
 
 library(dplyr)
+library(kableExtra)
 
-pie_crab |> 
+summary_table <- pie_crab |> 
   group_by(site) |>
   summarize(mean_size = round(mean(size, na.rm = TRUE),2), 
             sd_size = sd(size, na.rm = TRUE),
-            sample_size = n())
+            sample_size = n()) %>% 
+  kable(col.names = c("Site", "Size Mean (mm)", "Size Sd (mm)", "Size Sample Size"))
 
+summary_table
 ```
 
