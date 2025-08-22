@@ -3,9 +3,22 @@ title: "fiddler-crab"
 format: html
 editor: visual
 ---
+
 ```{r}
 #Load libraries 
 
 library(lterdatasampler)
+library(ggplot2)
+library(tidyverse)
+```
+
+```{r}
+pie_crab <- pie_crab
+
+ggplot(data = pie_crab, 
+       aes(x = size, 
+           y = latitude)) + 
+  geom_point() + 
+  coord_flip()
 ```
 
